@@ -1,21 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MSBTE Winter Result 2025</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body style="margin:0;font-family:Arial;background:#f2f2f2;">
-  <div style="background:#003366;color:white;padding:15px;text-align:center;">
-    <h2>MSBTE Winter Result 2025</h2>
-  </div>
+<meta charset="UTF-8">
+<title>MSBTE Result</title>
 
-  <div style="padding:20px;text-align:center;">
-    <input type="text" placeholder="Seat Number" style="padding:10px;width:250px;"><br><br>
-    <input type="text" placeholder="Mother Name" style="padding:10px;width:250px;"><br><br>
-    <button style="padding:10px 20px;background:#003366;color:white;border:none;">
-      View Result
-    </button>
-  </div>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+.card{
+    width:420px;
+    margin:50px auto;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    overflow:hidden;
+}
+.header{
+    padding:20px;
+    text-align:center;
+}
+.header img{
+    width:60px;
+}
+.form-area{
+    background:#fffddc;
+    padding:20px;
+}
+label{
+    font-weight:bold;
+}
+select,input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+.captcha{
+    font-size:22px;
+    color:red;
+    font-weight:bold;
+    text-align:center;
+    letter-spacing:3px;
+}
+button{
+    width:100%;
+    background:#ffcc00;
+    border:none;
+    padding:12px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
+}
+button:hover{
+    background:#e6b800;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/MSBTE_Logo.png">
+        <h3>Maharashtra State Board of Technical Education</h3>
+        <h4>महाराष्ट्र राज्य तंत्र शिक्षण मंडळ, मुंबई</h4>
+    </div>
+
+    <div class="form-area">
+        <label>Select Enrollment No. or Seat No.</label>
+        <select>
+            <option>Enrollment No.</option>
+            <option>Seat No.</option>
+        </select>
+
+        <label>Enter Enrollment No. or Seat No.</label>
+        <input type="text" id="number">
+
+        <label>Captcha</label>
+        <div class="captcha" id="captchaText"></div>
+
+        <label>Type Above Captcha Here</label>
+        <input type="text" id="captchaInput">
+
+        <button onclick="showResult()">Show Result</button>
+    </div>
+</div>
+
+<script>
+let captcha;
+
+function generateCaptcha(){
+    captcha = Math.random().toString(36).substring(2,8);
+    document.getElementById("captchaText").innerText = captcha;
+}
+generateCaptcha();
+
+function showResult(){
+    let num = document.getElementById("number").value;
+    let cap = document.getElementById("captchaInput").value;
+
+    if(num === ""){
+        alert("Please enter number");
+        return;
+    }
+
+    if(cap !== captcha){
+        alert("Captcha Incorrect");
+        generateCaptcha();
+        return;
+    }
+
+    window.location.href = "result.html";
+}
+</script>
+
 </body>
 </html>
