@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Result Video</title>
-</head>
+  <meta charset="UTF-8">
+  <title>Result Found</title>
 
-<body style="text-align:center; background:#f2f2f2">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding-top: 40px;
+    }
+    video {
+      width: 70%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      background: black;
+    }
+  </style>
+</head>
+<body>
 
 <h2>Result Found ✅</h2>
 
-<video width="600" controls autoplay>
-  <source src="./uploads/result.mp4" type="video/mp4">
+<video controls muted playsinline preload="auto">
+  <source src="result.mp4" type="video/mp4">
   Your browser does not support video.
 </video>
 
